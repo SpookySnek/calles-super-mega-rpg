@@ -1,0 +1,12 @@
+C:\Users\KILROYguy\source\repos\CallesSuperMegaRPG\Engine\bin\Debug\net6.0\Engine.deps.json
+C:\Users\KILROYguy\source\repos\CallesSuperMegaRPG\Engine\bin\Debug\net6.0\Engine.dll
+C:\Users\KILROYguy\source\repos\CallesSuperMegaRPG\Engine\bin\Debug\net6.0\Engine.pdb
+C:\Users\KILROYguy\source\repos\CallesSuperMegaRPG\Engine\obj\Debug\net6.0\Engine.csproj.AssemblyReference.cache
+C:\Users\KILROYguy\source\repos\CallesSuperMegaRPG\Engine\obj\Debug\net6.0\Engine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KILROYguy\source\repos\CallesSuperMegaRPG\Engine\obj\Debug\net6.0\Engine.AssemblyInfoInputs.cache
+C:\Users\KILROYguy\source\repos\CallesSuperMegaRPG\Engine\obj\Debug\net6.0\Engine.AssemblyInfo.cs
+C:\Users\KILROYguy\source\repos\CallesSuperMegaRPG\Engine\obj\Debug\net6.0\Engine.csproj.CoreCompileInputs.cache
+C:\Users\KILROYguy\source\repos\CallesSuperMegaRPG\Engine\obj\Debug\net6.0\Engine.dll
+C:\Users\KILROYguy\source\repos\CallesSuperMegaRPG\Engine\obj\Debug\net6.0\refint\Engine.dll
+C:\Users\KILROYguy\source\repos\CallesSuperMegaRPG\Engine\obj\Debug\net6.0\Engine.pdb
+C:\Users\KILROYguy\source\repos\CallesSuperMegaRPG\Engine\obj\Debug\net6.0\ref\Engine.dll
