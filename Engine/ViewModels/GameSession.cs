@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Engine.Factories;
 
 namespace Engine.ViewModels
 {
@@ -36,7 +37,8 @@ namespace Engine.ViewModels
             CurrentLocation.Description = "This is your house";
             CurrentLocation.ImageName = "pack://application:,,,/Engine;component/Images/Locations/Home.png";
 
-            CurrentWorld = new World();
+            WorldFactory factory = new WorldFactory();
+            CurrentWorld = factory.CreateWorld();
         }
     }
 }
