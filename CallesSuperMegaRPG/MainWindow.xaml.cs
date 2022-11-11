@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Engine.ViewModels;
 
-namespace CSMRPG_UI
+namespace CallesSuperMegaRPG
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
