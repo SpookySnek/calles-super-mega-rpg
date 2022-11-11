@@ -10,11 +10,6 @@
     Height="768"
     FontSize="11pt"
     mc:Ignorable="d">
-
-    <Window.Resources>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
-    </Window.Resources>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -184,7 +179,6 @@
                     Height="40"
                     Margin="10"
                     Click="OnClick_MoveNorth"
-                    Visibility="{Binding HasLocationToNorth, Converter={StaticResource BooleanToVisibility}}"
                     Content="North" />
                 <Button
                     Grid.Row="1"
@@ -193,7 +187,6 @@
                     Height="40"
                     Margin="10"
                     Click="OnClick_MoveWest"
-                    Visibility="{Binding HasLocationToWest, Converter={StaticResource BooleanToVisibility}}"
                     Content="West" />
                 <Button
                     Grid.Row="1"
@@ -202,7 +195,6 @@
                     Height="40"
                     Margin="10"
                     Click="OnClick_MoveEast"
-                    Visibility="{Binding HasLocationToEast, Converter={StaticResource BooleanToVisibility}}"
                     Content="East" />
                 <Button
                     Grid.Row="2"
@@ -211,7 +203,6 @@
                     Height="40"
                     Margin="10"
                     Click="OnClick_MoveSouth"
-                    Visibility="{Binding HasLocationToSouth, Converter={StaticResource BooleanToVisibility}}"
                     Content="South" />
             </Grid>
         </Grid>
