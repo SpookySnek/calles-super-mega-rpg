@@ -8,7 +8,7 @@ using Engine.Models;
 using Engine.Factories;
 namespace Engine.ViewModels
 {
-    public class GameSession : INotifyPropertyChanged
+    public class GameSession : NotificationHandler
     {
         private Location _currentLocation;
         public World CurrentWorld { get; set; }
@@ -20,11 +20,11 @@ namespace Engine.ViewModels
             {
                 _currentLocation = value;
 
-                OnPropertyChanged("CurrentLocation");
-                OnPropertyChanged("HasLocationToNorth");
-                OnPropertyChanged("HasLocationToEast");
-                OnPropertyChanged("HasLocationToWest");
-                OnPropertyChanged("HasLocationToSouth");
+                OnPropertyChanged(nameof(CurrentLocation));
+                OnPropertyChanged(nameof(HasLocationToNorth));
+                OnPropertyChanged(nameof(HasLocationToEast));
+                OnPropertyChanged(nameof(HasLocationToWest));
+                OnPropertyChanged(nameof(HasLocationToSouth));
             }
         }
         public bool HasLocationToNorth
@@ -83,11 +83,6 @@ namespace Engine.ViewModels
         public void MoveWest()
         {
             CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate);
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
