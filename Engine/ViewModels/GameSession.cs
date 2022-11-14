@@ -57,17 +57,20 @@ namespace Engine.ViewModels
         }
         public GameSession()
         {
-            CurrentPlayer = new Player();
-            CurrentPlayer.Name = "Calle";
-            CurrentPlayer.CharacterClass = "Fighter";
-            CurrentPlayer.HitPoints = 10;
-            CurrentPlayer.Gold = 1000000;
-            CurrentPlayer.ExperiencePoints = 0;
-            CurrentPlayer.Level = 1;
+            CurrentPlayer = new Player
+            {
+                Name = "Calle",
+                CharacterClass = "Wizard",
+                HitPoints = 10,
+                Gold = 1000000,
+                ExperiencePoints = 0,
+                Level = 1
+            };
             WorldFactory factory = new WorldFactory();
             CurrentWorld = factory.CreateWorld();
             CurrentLocation = CurrentWorld.LocationAt(0, 0);
         }
+        
         public void MoveNorth()
         {
             CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1);
@@ -86,5 +89,3 @@ namespace Engine.ViewModels
         }
     }
 }
-
-//TESTING
