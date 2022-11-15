@@ -71,10 +71,7 @@ namespace Engine.ViewModels
 
             CurrentLocation = CurrentWorld.LocationAt(0, 0);
 
-            CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
-            CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1002));
-            CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1002));
-        }   
+        }
 
         public void MoveNorth()
         {
