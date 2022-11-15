@@ -145,11 +145,18 @@
                 </Grid>
             </Border>
         </Grid>
-        <Label
+        <Grid
             Grid.Row="2"
             Grid.Column="0"
-            Background="BurlyWood"
-            Content="Inventory/Quests" />
+            Background="BurlyWood">
+            <TabControl>
+                <TabItem Header="Inventory">
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.Inventory}">
+
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+        </Grid>
         <Grid
             Grid.Row="2"
             Grid.Column="1"
