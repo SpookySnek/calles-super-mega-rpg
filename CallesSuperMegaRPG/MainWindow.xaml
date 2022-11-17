@@ -5,6 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:CallesSuperMegaRPG"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:Engine.ViewModels;assembly=Engine"
+    d:DataContext="{d:DesignInstance viewModels:GameSession}"
     Title="Calle's Super Mega RPG"
     Width="1024"
     Height="768"
@@ -27,12 +29,15 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+        <!--  Menu  -->
         <Label
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Background="AliceBlue"
             Content="Menu" />
+
+        <!--  Gameplay  -->
         <Grid
             Grid.Row="1"
             Grid.Column="0"
@@ -113,6 +118,8 @@
                 <ColumnDefinition Width="3*" />
                 <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
+
+            <!--  Location information  -->
             <Border
                 Grid.Row="0"
                 Grid.Column="1"
@@ -142,6 +149,42 @@
                         Grid.Row="2"
                         HorizontalAlignment="Center"
                         Text="{Binding CurrentLocation.Description}" />
+                </Grid>
+            </Border>
+
+            <!--  Monster information  -->
+            <Border
+                Grid.Row="1"
+                Grid.Column="1"
+                BorderBrush="Gainsboro"
+                BorderThickness="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Grid.Row="0"
+                        Height="Auto"
+                        HorizontalAlignment="Center"
+                        Text="{Binding CurrentMonster.Name}" />
+                    <Image
+                        Grid.Row="1"
+                        Width="125"
+                        Height="125"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="{Binding CurrentMonster.ImageName}" />
+                    <StackPanel
+                        Grid.Row="2"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Visibility="{Binding HasMonster, Converter={StaticResource BooleanToVisibility}}">
+                        <TextBlock>Current Hit Points: </TextBlock>
+                        <TextBlock Text="{Binding CurrentMonster.HitPoints}" />
+                    </StackPanel>
                 </Grid>
             </Border>
         </Grid>
