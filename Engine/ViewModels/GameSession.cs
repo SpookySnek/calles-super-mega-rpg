@@ -29,6 +29,7 @@ namespace Engine.ViewModels
                 OnPropertyChanged(nameof(HasLocationToSouth));
 
                 GivePlayerQuestsAtLocation();
+                GetMonsterAtLocation();
             }
         }
 
@@ -129,6 +130,10 @@ namespace Engine.ViewModels
                     CurrentPlayer.Quests.Add(new QuestStatus(quest));
                 }
             }
+        }
+        private void GetMonsterAtLocation()
+        {
+            CurrentMonster = CurrentLocation.GetMonster();
         }
     }
 }
