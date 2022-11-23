@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Engine.EventArgs
 {
-    internal class GameMessageEventArgs
+    public class GameMessageEventArgs : System.EventArgs
     {
+        public string Message { get; private set; }
+        public GameMessageEventArgs(string message)
+        {
+            Message = message;
+        }
     }
 }
