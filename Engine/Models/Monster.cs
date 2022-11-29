@@ -16,8 +16,8 @@ namespace Engine.Models
         public int MaximumHitPoints { get; private set; }
         public int HitPoints
         {
-            get { return _hitPoints; }
-            private set
+            get { return _hitPoints; } 
+            set
             {
                 _hitPoints = value;
                 OnPropertyChanged(nameof(HitPoints));
