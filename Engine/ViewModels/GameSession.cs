@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Engine.EventArgs;
-using Engine.Models;
+﻿using Engine.EventArgs;
 using Engine.Factories;
+using Engine.Models;
 namespace Engine.ViewModels
 {
     public class GameSession : NotificationHandler

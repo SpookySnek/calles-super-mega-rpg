@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Engine.Models;
+﻿using Engine.Models;
 namespace Engine.Factories
 {
     public static class TraderFactory
