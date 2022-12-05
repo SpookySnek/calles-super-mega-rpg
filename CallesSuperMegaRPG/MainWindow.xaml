@@ -74,7 +74,7 @@
             <Label
                 Grid.Row="2"
                 Grid.Column="1"
-                Content="{Binding CurrentPlayer.HitPoints}" />
+                Content="{Binding CurrentPlayer.CurrentHitPoints}" />
             <Label
                 Grid.Row="3"
                 Grid.Column="0"
@@ -191,7 +191,7 @@
                         Orientation="Horizontal"
                         Visibility="{Binding HasMonster, Converter={StaticResource BooleanToVisibility}}">
                         <TextBlock>Current Hit Points:</TextBlock>
-                        <TextBlock Text="{Binding CurrentMonster.HitPoints}" />
+                        <TextBlock Text="{Binding CurrentMonster.CurrentHitPoints}" />
                     </StackPanel>
                 </Grid>
             </Border>
