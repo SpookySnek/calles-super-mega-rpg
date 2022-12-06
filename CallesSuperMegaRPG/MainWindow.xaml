@@ -206,15 +206,19 @@
                     <DataGrid
                         AutoGenerateColumns="False"
                         HeadersVisibility="Column"
-                        ItemsSource="{Binding CurrentPlayer.Inventory}">
+                        ItemsSource="{Binding CurrentPlayer.GroupedInventory}">
                         <DataGrid.Columns>
                             <DataGridTextColumn
                                 Width="*"
-                                Binding="{Binding Name}"
+                                Binding="{Binding Item.Name}"
                                 Header="Description" />
+                            <DataGridTextColumn 
+                                Header="Qty"
+                                Width="Auto"
+                                Binding="{Binding Quantity}"/>
                             <DataGridTextColumn
                                 Width="Auto"
-                                Binding="{Binding Price}"
+                                Binding="{Binding Item.Price}"
                                 Header="Price" />
                         </DataGrid.Columns>
                     </DataGrid>

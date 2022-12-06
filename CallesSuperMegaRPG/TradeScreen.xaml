@@ -52,17 +52,21 @@
             CanUserAddRows="False"
             CanUserDeleteRows="False"
             HeadersVisibility="Column"
-            ItemsSource="{Binding CurrentPlayer.Inventory}"
+            ItemsSource="{Binding CurrentPlayer.GroupedInventory}"
             VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding Path=Name}"
+                    Binding="{Binding Path=Item.Name}"
                     Header="Description"
                     IsReadOnly="True" />
                 <DataGridTextColumn
                     Width="Auto"
-                    Binding="{Binding Path=Price}"
+                    Binding="{Binding Quantity}"
+                    Header="Qty" />
+                <DataGridTextColumn
+                    Width="Auto"
+                    Binding="{Binding Path=Item.Price}"
                     Header="Price"
                     IsReadOnly="True" />
                 <DataGridTemplateColumn MinWidth="75">
@@ -71,7 +75,7 @@
                             <Button
                                 Width="55"
                                 Click="OnClick_Sell"
-                                Content="Sell" />
+                                Content="Sell 1" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -85,17 +89,21 @@
             CanUserAddRows="False"
             CanUserDeleteRows="False"
             HeadersVisibility="Column"
-            ItemsSource="{Binding CurrentTrader.Inventory}"
+            ItemsSource="{Binding CurrentTrader.GroupedInventory}"
             VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding Path=Name}"
+                    Binding="{Binding Path=Item.Name}"
                     Header="Description"
                     IsReadOnly="True" />
                 <DataGridTextColumn
                     Width="Auto"
-                    Binding="{Binding Path=Price}"
+                    Binding="{Binding Quantity}"
+                    Header="Qty" />
+                <DataGridTextColumn
+                    Width="Auto"
+                    Binding="{Binding Path=Item.Price}"
                     Header="Price"
                     IsReadOnly="True" />
                 <DataGridTemplateColumn MinWidth="75">
@@ -104,7 +112,7 @@
                             <Button
                                 Width="55"
                                 Click="OnClick_Buy"
-                                Content="Buy" />
+                                Content="Buy 1" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
