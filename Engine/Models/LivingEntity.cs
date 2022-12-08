@@ -4,6 +4,7 @@ namespace Engine.Models
 {
     public abstract class LivingEntity : NotificationHandler
     {
+        #region Properties
         private string _name;
         private int _currentHitPoints;
         private int _maximumHitPoints;
@@ -48,21 +49,18 @@ namespace Engine.Models
         public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; set; }
         public List<GameItem> Weapons =>
             Inventory.Where(i => i is Weapon).ToList();
-
         public bool IsDead => CurrentHitPoints <= 0;
-
+        #endregion
         public event EventHandler OnKilled;
         protected LivingEntity(string name, int maximumHitPoints, int currentHitPoints, int gold)
         {
-            Name = Name;
+            Name = name;
             MaximumHitPoints = maximumHitPoints;
             CurrentHitPoints = currentHitPoints;
             Gold = gold;
-
             Inventory = new ObservableCollection<GameItem>();
             GroupedInventory = new ObservableCollection<GroupedInventoryItem>();
         }
-
         public void TakeDamage(int hitPointsOfDamage)
         {
             CurrentHitPoints -= hitPointsOfDamage;
@@ -96,7 +94,6 @@ namespace Engine.Models
             }
             Gold -= amountOfGold;
         }
-
         public void AddItemToInventory(GameItem item)
         {
             Inventory.Add(item);
@@ -132,9 +129,11 @@ namespace Engine.Models
             }
             OnPropertyChanged(nameof(Weapons));
         }
+        #region Private functions
         private void RaiseOnKilledEvent()
         {
             OnKilled?.Invoke(this, new System.EventArgs());
         }
+        #endregion
     }
 }
