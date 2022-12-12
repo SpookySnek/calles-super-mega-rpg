@@ -9,9 +9,10 @@ namespace Engine.Models
         private int _currentHitPoints;
         private int _maximumHitPoints;
         private int _gold;
+        private int _level;
         public string Name
         {
-            get { return _name; }
+            get => _name;
             private set
             {
                 _name = value;
@@ -20,7 +21,7 @@ namespace Engine.Models
         }
         public int CurrentHitPoints
         {
-            get { return _currentHitPoints; }
+            get => _currentHitPoints;
             private set
             {
                 _currentHitPoints = value;
@@ -29,8 +30,8 @@ namespace Engine.Models
         }
         public int MaximumHitPoints
         {
-            get { return _maximumHitPoints; }
-            private set
+            get => _maximumHitPoints;
+            protected set
             {
                 _maximumHitPoints = value;
                 OnPropertyChanged(nameof(MaximumHitPoints));
@@ -38,13 +39,24 @@ namespace Engine.Models
         }
         public int Gold
         {
-            get { return _gold; }
+            get => _gold;
             private set
             {
                 _gold = value;
                 OnPropertyChanged(nameof(Gold));
             }
         }
+
+        public int Level
+        {
+            get => _level;
+            protected set
+            {
+                _level = value;
+                OnPropertyChanged(nameof(Level));
+            }
+        }
+        
         public ObservableCollection<GameItem> Inventory { get; set; }
         public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; set; }
         public List<GameItem> Weapons =>
@@ -52,12 +64,14 @@ namespace Engine.Models
         public bool IsDead => CurrentHitPoints <= 0;
         #endregion
         public event EventHandler OnKilled;
-        protected LivingEntity(string name, int maximumHitPoints, int currentHitPoints, int gold)
+        protected LivingEntity(string name, int maximumHitPoints, int currentHitPoints, int gold, int level = 1)
         {
             Name = name;
             MaximumHitPoints = maximumHitPoints;
             CurrentHitPoints = currentHitPoints;
             Gold = gold;
+            Level = level;
+            
             Inventory = new ObservableCollection<GameItem>();
             GroupedInventory = new ObservableCollection<GroupedInventoryItem>();
         }
