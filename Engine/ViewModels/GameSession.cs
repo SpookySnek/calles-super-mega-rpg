@@ -17,7 +17,7 @@ namespace Engine.ViewModels
         public World CurrentWorld { get; set; }
         public Player CurrentPlayer
         {
-            get { return _currentPlayer; }
+            get => _currentPlayer;
             set
             {
                 if (_currentPlayer != null)
@@ -33,7 +33,7 @@ namespace Engine.ViewModels
         }
         public Location CurrentLocation
         {
-            get { return _currentLocation; }
+            get => _currentLocation;
             set
             {
                 _currentLocation = value;
@@ -54,7 +54,7 @@ namespace Engine.ViewModels
 
         public Monster CurrentMonster
         {
-            get { return _currentMonster; }
+            get => _currentMonster;
             set
             {
                 if (_currentMonster != null)
@@ -76,7 +76,7 @@ namespace Engine.ViewModels
 
         public Trader CurrentTrader
         {
-            get { return _currentTrader; }
+            get => _currentTrader;
 
 
             set
