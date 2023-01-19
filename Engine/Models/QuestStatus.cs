@@ -3,7 +3,7 @@
     public class QuestStatus : NotificationHandler
     {
         private bool _isCompleted;
-        public Quest PlayerQuest { get; set; }
+        public Quest PlayerQuest { get; }
         public bool IsCompleted
         {
             get => _isCompleted;
