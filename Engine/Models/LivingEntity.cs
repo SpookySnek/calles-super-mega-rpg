@@ -16,7 +16,7 @@ namespace Engine.Models
             private set
             {
                 _name = value;
-                OnPropertyChanged(nameof(Name));
+                OnPropertyChanged();
             }
         }
         public int CurrentHitPoints
@@ -25,7 +25,7 @@ namespace Engine.Models
             private set
             {
                 _currentHitPoints = value;
-                OnPropertyChanged(nameof(CurrentHitPoints));
+                OnPropertyChanged();
             }
         }
         public int MaximumHitPoints
@@ -34,7 +34,7 @@ namespace Engine.Models
             protected set
             {
                 _maximumHitPoints = value;
-                OnPropertyChanged(nameof(MaximumHitPoints));
+                OnPropertyChanged();
             }
         }
         public int Gold
@@ -43,7 +43,7 @@ namespace Engine.Models
             private set
             {
                 _gold = value;
-                OnPropertyChanged(nameof(Gold));
+                OnPropertyChanged();
             }
         }
 
@@ -53,12 +53,12 @@ namespace Engine.Models
             protected set
             {
                 _level = value;
-                OnPropertyChanged(nameof(Level));
+                OnPropertyChanged();
             }
         }
         
-        public ObservableCollection<GameItem> Inventory { get; set; }
-        public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; set; }
+        public ObservableCollection<GameItem> Inventory { get; }
+        public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; }
         public List<GameItem> Weapons =>
             Inventory.Where(i => i is Weapon).ToList();
         public bool IsDead => CurrentHitPoints <= 0;
@@ -123,7 +123,7 @@ namespace Engine.Models
                 }
                 GroupedInventory.First(gi => gi.Item.ItemTypeID == item.ItemTypeID).Quantity++;
             }
-            OnPropertyChanged(nameof(Weapons));
+            OnPropertyChanged();
         }
         public void RemoveItemFromInventory(GameItem item)
         {
@@ -144,7 +144,7 @@ namespace Engine.Models
                     groupedInventoryItemToRemove.Quantity--;
                 }
             }
-            OnPropertyChanged(nameof(Weapons));
+            OnPropertyChanged();
         }
         #region Private functions
         private void RaiseOnKilledEvent()
