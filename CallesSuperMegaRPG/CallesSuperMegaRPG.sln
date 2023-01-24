@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CallesSuperMegaRPG", "Calle
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Engine", "..\Engine\Engine.csproj", "{4A30EAEC-A1C8-4288-986C-D2D454F4067B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestEngine", "..\TestEngine\TestEngine.csproj", "{FE06FE13-860F-40CD-B812-882A07FEAC20}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestEngine", "..\TestEngine\TestEngine.csproj", "{3261FDCF-04E6-4753-B466-C9CE55EFDA7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{4A30EAEC-A1C8-4288-986C-D2D454F4067B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A30EAEC-A1C8-4288-986C-D2D454F4067B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A30EAEC-A1C8-4288-986C-D2D454F4067B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE06FE13-860F-40CD-B812-882A07FEAC20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE06FE13-860F-40CD-B812-882A07FEAC20}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE06FE13-860F-40CD-B812-882A07FEAC20}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE06FE13-860F-40CD-B812-882A07FEAC20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3261FDCF-04E6-4753-B466-C9CE55EFDA7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3261FDCF-04E6-4753-B466-C9CE55EFDA7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3261FDCF-04E6-4753-B466-C9CE55EFDA7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3261FDCF-04E6-4753-B466-C9CE55EFDA7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
