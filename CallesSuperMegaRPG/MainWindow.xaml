@@ -275,7 +275,7 @@
                     Grid.Column="0"
                     DisplayMemberPath="Name"
                     ItemsSource="{Binding CurrentPlayer.Weapons}"
-                    SelectedItem="{Binding CurrentWeapon}"
+                    SelectedItem="{Binding CurrentPlayer.CurrentWeapon}"
                     SelectedValuePath="ID" />
                 <Button
                     Grid.Row="0"
