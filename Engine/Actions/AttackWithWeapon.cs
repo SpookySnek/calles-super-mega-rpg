@@ -31,6 +31,7 @@ namespace Engine.Actions
             _minimumDamage = minimumDamage;
             _maximumDamage = maximumDamage;
         }
+        
         public void Execute(LivingEntity actor, LivingEntity target)
         {
             int damage = RandomNumberGenerator.NumberBetween(_minimumDamage, _maximumDamage);
