@@ -34,6 +34,7 @@ namespace Engine.Actions
         public void Execute(LivingEntity actor, LivingEntity target)
         {
             int damage = RandomNumberGenerator.NumberBetween(_minimumDamage, _maximumDamage);
+            
             if (damage == 0)
             {
                 ReportResult($"You missed the {target.Name.ToLower()}.");
