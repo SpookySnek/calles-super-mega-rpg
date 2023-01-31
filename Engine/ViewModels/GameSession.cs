@@ -114,6 +114,7 @@ namespace Engine.ViewModels
                 CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1001));
             }
 
+            CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(2001));
 
             CurrentWorld = WorldFactory.CreateWorld();
 
@@ -248,6 +249,11 @@ namespace Engine.ViewModels
             }
         }
 
+        public void UseCurrentConsumable()
+        {
+            CurrentPlayer.UseCurrentConsumable();
+        }
+        
         private void OnCurrentPlayerActionPerformed(object sender, string result)
         {
             RaiseMessage(result);
