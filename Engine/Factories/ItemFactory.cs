@@ -16,7 +16,11 @@ namespace Engine.Factories
             BuildWeapon(1502, "Rat Claws", 0, 0, 2);
             BuildWeapon(1503, "Spider Fangs", 0, 0, 4);
 
-            BuildHealingItem(2001, "Protein bar", 5, 2);
+            BuildHealingItem(2001, "Granola bar", 5, 2);
+
+            BuildMiscItem(3001, "Oats", 1);
+            BuildMiscItem(3002, "Honey", 2);
+            BuildMiscItem(3003, "Raisins", 2);
 
             BuildMiscItem(9001, "Snake fang", 1);
             BuildMiscItem(9002, "Snakeskin", 2);
