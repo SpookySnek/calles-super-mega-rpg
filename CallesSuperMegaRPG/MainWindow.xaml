@@ -249,6 +249,15 @@
                                 Width="*"
                                 Binding="{Binding Name}"
                                 Header="Name" />
+                            <DataGridTemplateColumn MinWidth="75">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Click="OnClick_Craft"
+                                                Width="55"
+                                                Content="Craft"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
