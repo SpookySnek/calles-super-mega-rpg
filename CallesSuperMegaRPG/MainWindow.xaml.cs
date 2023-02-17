@@ -1,8 +1,11 @@
 ﻿using Engine.EventArgs;
 using Engine.Models;
 using Engine.ViewModels;
+using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Documents;
+using System.Windows.Input;
 
 namespace CallesSuperMegaRPG
 {
@@ -12,6 +15,7 @@ namespace CallesSuperMegaRPG
     public partial class MainWindow : Window
     {
         private readonly GameSession _gameSession = new GameSession();
+        private readonly Dictionary<Key, Action> _userInputActions = new Dictionary<Key, Action>();
         public MainWindow()
         {
             InitializeComponent();

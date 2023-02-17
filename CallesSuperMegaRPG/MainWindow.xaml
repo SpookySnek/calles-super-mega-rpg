@@ -11,7 +11,8 @@
     Height="768"
     d:DataContext="{d:DesignInstance viewModels:GameSession}"
     FontSize="11pt"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    KeyDown="MainWindow_OnKeyDown">
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
