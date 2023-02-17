@@ -1,8 +1,11 @@
 ﻿using Engine.EventArgs;
 using Engine.Models;
 using Engine.ViewModels;
+using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Documents;
+using System.Windows.Input;
 
 namespace CallesSuperMegaRPG
 {
@@ -12,9 +15,12 @@ namespace CallesSuperMegaRPG
     public partial class MainWindow : Window
     {
         private readonly GameSession _gameSession = new GameSession();
+        private readonly Dictionary<Key, Action> _userInputActions = new Dictionary<Key, Action>();
         public MainWindow()
         {
             InitializeComponent();
+
+            InitializeUserInputActions();
 
             _gameSession.OnMessageRaised += OnGameMessageRaised;
 
@@ -67,6 +73,24 @@ namespace CallesSuperMegaRPG
         {
             Recipe recipe = ((FrameworkElement)sender).DataContext as Recipe;
             _gameSession.CraftItemUsing(recipe);
+        }
+
+        private void InitializeUserInputActions() 
+        {
+            _userInputActions.Add(Key.W, () => _gameSession.MoveNorth());
+            _userInputActions.Add(Key.A, () => _gameSession.MoveWest());
+            _userInputActions.Add(Key.S, () => _gameSession.MoveSouth());
+            _userInputActions.Add(Key.D, () => _gameSession.MoveEast());
+            _userInputActions.Add(Key.Z, () => _gameSession.AttackCurrentMonster());
+            _userInputActions.Add(Key.C, () => _gameSession.UseCurrentConsumable());
+        }
+
+        private void MainWindow_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (_userInputActions.ContainsKey(e.Key))
+            {
+                _userInputActions[e.Key].Invoke();
+            }
         }
     }
 }
