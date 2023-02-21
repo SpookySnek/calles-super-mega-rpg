@@ -202,8 +202,9 @@
             Grid.Row="2"
             Grid.Column="0"
             Background="BurlyWood">
-            <TabControl>
-                <TabItem Header="Inventory">
+            <TabControl x:Name="PlayerDataTabControl">
+                <TabItem Header="Inventory"
+                         x:Name="InventoryTabItem">
                     <DataGrid
                         AutoGenerateColumns="False"
                         HeadersVisibility="Column"
@@ -211,20 +212,21 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn
                                 Width="*"
-                                Binding="{Binding Item.Name}"
+                                Binding="{Binding Item.Name, Mode=OneWay}"
                                 Header="Description" />
                             <DataGridTextColumn
                                 Width="Auto"
-                                Binding="{Binding Quantity}"
+                                Binding="{Binding Quantity, Mode=OneWay}"
                                 Header="Qty" />
                             <DataGridTextColumn
                                 Width="Auto"
-                                Binding="{Binding Item.Price}"
+                                Binding="{Binding Item.Price, Mode=OneWay}"
                                 Header="Price" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
-                <TabItem Header="Quests">
+                <TabItem Header="Quests"
+                         x:Name="QuestsTabItem">
                     <DataGrid
                         AutoGenerateColumns="False"
                         HeadersVisibility="Column"
@@ -232,23 +234,24 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn
                                 Width="*"
-                                Binding="{Binding PlayerQuest.Name}"
+                                Binding="{Binding PlayerQuest.Name, Mode=OneWay}"
                                 Header="Name" />
                             <DataGridTextColumn
                                 Width="Auto"
-                                Binding="{Binding IsCompleted}"
+                                Binding="{Binding IsCompleted, Mode=OneWay}"
                                 Header="Done?" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
-                <TabItem Header="Recipes">
+                <TabItem Header="Recipes"
+                         x:Name="RecipesTabItem">
                     <DataGrid ItemsSource="{Binding CurrentPlayer.Recipes}"
                               AutoGenerateColumns="False"
                               HeadersVisibility="All">
                         <DataGrid.Columns>
                             <DataGridTextColumn
                                 Width="*"
-                                Binding="{Binding Name}"
+                                Binding="{Binding Name, Mode=OneWay}"
                                 Header="Name" />
                             <DataGridTemplateColumn MinWidth="75">
                                 <DataGridTemplateColumn.CellTemplate>
