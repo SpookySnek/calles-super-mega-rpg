@@ -1,4 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--$"pack://application:,,,/Engine;component/Images/Locations/{imageName}"-->
+
 <Locations RootImagePath="/Images/Locations/">
 	<Location X="-2" Y="-1" Name="Farmer's Field" ImageName="FarmFields.png">
 		<Description><![CDATA[There are rows of corn here, with giant rats hiding between them.]]></Description>

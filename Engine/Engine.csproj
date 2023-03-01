@@ -9,15 +9,6 @@
   <ItemGroup>
     <None Remove="GameData\GameItems.xml" />
     <None Remove="GameData\Locations.xml" />
-    <None Remove="Images\Locations\FarmFields.png" />
-    <None Remove="Images\Locations\Farmhouse.png" />
-    <None Remove="Images\Locations\HerbalistsGarden.png" />
-    <None Remove="Images\Locations\HerbalistsHut.png" />
-    <None Remove="Images\Locations\Home.png" />
-    <None Remove="Images\Locations\SpiderForest.png" />
-    <None Remove="Images\Locations\TownGate.png" />
-    <None Remove="Images\Locations\TownSquare.png" />
-    <None Remove="Images\Locations\Trader.png" />
     <None Remove="Images\Monsters\GiantSpider.png" />
     <None Remove="Images\Monsters\Rat.png" />
     <None Remove="Images\Monsters\Snake.png" />
@@ -39,15 +30,33 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\Locations\FarmFields.png" />
-    <Resource Include="Images\Locations\Farmhouse.png" />
-    <Resource Include="Images\Locations\HerbalistsGarden.png" />
-    <Resource Include="Images\Locations\HerbalistsHut.png" />
-    <Resource Include="Images\Locations\Home.png" />
-    <Resource Include="Images\Locations\SpiderForest.png" />
-    <Resource Include="Images\Locations\TownGate.png" />
-    <Resource Include="Images\Locations\TownSquare.png" />
-    <Resource Include="Images\Locations\Trader.png" />
+    <None Update="Images\Locations\FarmFields.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\Farmhouse.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\HerbalistsGarden.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\HerbalistsHut.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\Home.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\SpiderForest.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\TownGate.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\TownSquare.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Locations\Trader.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
