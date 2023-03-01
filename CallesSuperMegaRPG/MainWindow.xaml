@@ -154,7 +154,7 @@
                         Height="125"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Source="{Binding CurrentLocation.ImageName}" />
+                        Source="{Binding CurrentLocation.ImageName, Converter={StaticResource FileToBitmapConverter}}" />
                     <TextBlock
                         Grid.Row="2"
                         HorizontalAlignment="Center"
