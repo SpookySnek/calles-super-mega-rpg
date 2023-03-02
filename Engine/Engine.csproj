@@ -9,6 +9,7 @@
   <ItemGroup>
     <None Remove="GameData\GameItems.xml" />
     <None Remove="GameData\Locations.xml" />
+    <None Remove="GameData\Monsters.xml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +17,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="GameData\Locations.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameData\Monsters.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
