@@ -9,9 +9,6 @@
   <ItemGroup>
     <None Remove="GameData\GameItems.xml" />
     <None Remove="GameData\Locations.xml" />
-    <None Remove="Images\Monsters\GiantSpider.png" />
-    <None Remove="Images\Monsters\Rat.png" />
-    <None Remove="Images\Monsters\Snake.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,12 +18,6 @@
     <Content Include="GameData\Locations.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Images\Monsters\GiantSpider.png" />
-    <Resource Include="Images\Monsters\Rat.png" />
-    <Resource Include="Images\Monsters\Snake.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,6 +46,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Images\Locations\Trader.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Monsters\GiantSpider.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Monsters\Rat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\Monsters\Snake.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
