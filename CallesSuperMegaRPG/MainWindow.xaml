@@ -185,7 +185,7 @@
                         Height="125"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Source="{Binding CurrentMonster.ImageName}" />
+                        Source="{Binding CurrentMonster.ImageName, Converter={StaticResource FileToBitmapConverter}}" />
                     <StackPanel
                         Grid.Row="2"
                         HorizontalAlignment="Center"
