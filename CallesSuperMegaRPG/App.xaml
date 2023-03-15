@@ -4,8 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="clr-namespace:CallesSuperMegaRPG.CustomConverters"
     xmlns:local="clr-namespace:CallesSuperMegaRPG"
+    DispatcherUnhandledException="App_OnDispatcherUnhandledException"
     StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <converters:FileToBitmapConverter x:Key="FileToBitmapConverter"/>
+        <converters:FileToBitmapConverter x:Key="FileToBitmapConverter" />
     </Application.Resources>
 </Application>
