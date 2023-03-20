@@ -207,7 +207,7 @@
                     <DataGrid
                         AutoGenerateColumns="False"
                         HeadersVisibility="Column"
-                        ItemsSource="{Binding CurrentPlayer.GroupedInventory}">
+                        ItemsSource="{Binding CurrentPlayer.Inventory.GroupedInventory}">
                         <DataGrid.Columns>
                             <DataGridTextColumn
                                 Width="*"
@@ -310,7 +310,7 @@
                     Grid.Row="0"
                     Grid.Column="0"
                     DisplayMemberPath="Name"
-                    ItemsSource="{Binding CurrentPlayer.Weapons}"
+                    ItemsSource="{Binding CurrentPlayer.Inventory.Weapons}"
                     SelectedItem="{Binding CurrentPlayer.CurrentWeapon}"
                     Visibility="{Binding HasMonster, Converter={StaticResource BooleanToVisibility}}" />
                 <Button
@@ -323,15 +323,15 @@
                     Grid.Row="1"
                     Grid.Column="0"
                     DisplayMemberPath="Name"
-                    ItemsSource="{Binding CurrentPlayer.Consumables}"
+                    ItemsSource="{Binding CurrentPlayer.Inventory.Consumables}"
                     SelectedItem="{Binding CurrentPlayer.CurrentConsumable}"
-                    Visibility="{Binding CurrentPlayer.HasConsumable, Converter={StaticResource BooleanToVisibility}}" />
+                    Visibility="{Binding CurrentPlayer.Inventory.HasConsumable, Converter={StaticResource BooleanToVisibility}}" />
                 <Button
                     Grid.Row="1"
                     Grid.Column="2"
                     Click="OnClick_UseCurrentConsumable"
                     Content="Use"
-                    Visibility="{Binding CurrentPlayer.HasConsumable, Converter={StaticResource BooleanToVisibility}}" />
+                    Visibility="{Binding CurrentPlayer.Inventory.HasConsumable, Converter={StaticResource BooleanToVisibility}}" />
             </Grid>
             <!--  Movement Controls  -->
             <Grid Grid.Row="0" Grid.Column="1">

@@ -52,7 +52,7 @@
             CanUserAddRows="False"
             CanUserDeleteRows="False"
             HeadersVisibility="Column"
-            ItemsSource="{Binding CurrentPlayer.GroupedInventory}"
+            ItemsSource="{Binding CurrentPlayer.Inventory.GroupedInventory}"
             VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn
@@ -89,7 +89,7 @@
             CanUserAddRows="False"
             CanUserDeleteRows="False"
             HeadersVisibility="Column"
-            ItemsSource="{Binding CurrentTrader.GroupedInventory}"
+            ItemsSource="{Binding CurrentTrader.Inventory.GroupedInventory}"
             VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn
