@@ -6,6 +6,7 @@ namespace Engine.Models
     public abstract class LivingEntity : NotificationHandler
     {
         #region Properties
+        
         private string _name;
         private int _currentHitPoints;
         private int _maximumHitPoints;
@@ -102,8 +103,11 @@ namespace Engine.Models
                 OnPropertyChanged();
             }
         }
-        public bool IsDead => CurrentHitPoints <= 0;
+        public bool IsAlive => CurrentHitPoints > 0;
+        public bool IsDead => !IsAlive;
+
         #endregion
+
         public event EventHandler<string> OnActionPerformed;
         public event EventHandler OnKilled;
         protected LivingEntity(string name, int maximumHitPoints, int currentHitPoints,
@@ -170,6 +174,7 @@ namespace Engine.Models
         {
             Inventory = Inventory.RemoveItems(itemQuantities);
         }
+        
         #region Private functions
         private void RaiseOnKilledEvent()
         {
