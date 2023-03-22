@@ -1,6 +1,6 @@
 ﻿namespace Engine.EventArgs
 {
-    internal class CombatVictoryEventArgs : System.EventArgs
+    public class CombatVictoryEventArgs : System.EventArgs
     {
     }
 }
