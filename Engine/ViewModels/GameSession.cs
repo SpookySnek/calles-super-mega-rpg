@@ -70,6 +70,7 @@ namespace Engine.ViewModels
                 {
                     _currentBattle.OnCombatVictory -= OnCurrentMonsterKilled;
                     _currentBattle.Dispose();
+                    _currentBattle = null;
                 }
                 _currentMonster = value;
                 
@@ -224,7 +225,7 @@ namespace Engine.ViewModels
 
         public void AttackCurrentMonster()
         {
-            _currentBattle.AttackOpponent();
+            _currentBattle?.AttackOpponent();
         }
 
         public void UseCurrentConsumable()
