@@ -32,7 +32,7 @@ namespace Engine.Models
         {
             // "Clone" this monster to a new Monster object
             Monster newMonster =
-                new Monster(ID, Name, ImageName, MaximumHitPoints, CurrentWeapon,
+                new Monster(ID, Name, ImageName, MaximumHitPoints, Dexterity, CurrentWeapon,
                             RewardExperiencePoints, Gold);
             foreach (ItemPercentage itemPercentage in _lootTable)
             {
