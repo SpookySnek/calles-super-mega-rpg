@@ -107,7 +107,9 @@ namespace Engine.ViewModels
         public bool HasTrader => CurrentTrader != null;
         public GameSession()
         {
-            CurrentPlayer = new Player("Calle", "Fighter", 0, 10, 10, 1000);
+            int dexterity = RandomNumberGenerator.NumberBetween(3, 18);
+
+            CurrentPlayer = new Player("Calle", "Fighter", 0, 10, 10, dexterity, 1000);
 
             if (!CurrentPlayer.Inventory.Weapons.Any())
             {
