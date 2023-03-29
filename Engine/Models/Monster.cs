@@ -11,10 +11,10 @@ namespace Engine.Models
         public string ImageName { get; }
         public int RewardExperiencePoints { get; }
         public Monster(int id, string name, string imageName,
-                       int maximumHitPoints,
+                       int maximumHitPoints, int dexterity,
                        GameItem currentWeapon,
                        int rewardExperiencePoints, int gold) :
-            base(name, maximumHitPoints, maximumHitPoints, gold)
+            base(name, maximumHitPoints, maximumHitPoints, dexterity, gold)
         {
             ID = id;
             ImageName = imageName;
