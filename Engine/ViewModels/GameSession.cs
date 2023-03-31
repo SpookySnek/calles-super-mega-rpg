@@ -18,7 +18,8 @@ namespace Engine.ViewModels
 
         private Monster _currentMonster;
 
-        private Trader _currentTrader;
+        private Trader _currentTrader;        
+        public string Version { get; } = "0.1.000";
         public World CurrentWorld { get; }
         public Player CurrentPlayer
         {
@@ -126,6 +127,12 @@ namespace Engine.ViewModels
 
             CurrentLocation = CurrentWorld.LocationAt(0, 0);
 
+        }
+        public GameSession(Player player, int xCoordinate, int yCoordinate)
+        {
+            CurrentWorld = WorldFactory.CreateWorld();
+            CurrentPlayer = player;
+            CurrentLocation = CurrentWorld.LocationAt(xCoordinate, yCoordinate);
         }
 
         public void MoveNorth()
