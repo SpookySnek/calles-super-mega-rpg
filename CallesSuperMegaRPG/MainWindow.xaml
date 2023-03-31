@@ -10,6 +10,7 @@
     Width="1024"
     Height="768"
     d:DataContext="{d:DesignInstance viewModels:GameSession}"
+    Closing="MainWindow_OnClosing"
     FontSize="11pt"
     KeyDown="MainWindow_OnKeyDown"
     mc:Ignorable="d">
