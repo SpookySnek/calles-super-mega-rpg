@@ -3,6 +3,7 @@ using Engine.Factories;
 using Engine.Models;
 using Engine.Actions;
 using Engine.Services;
+using Newtonsoft.Json;
 
 namespace Engine.ViewModels
 {
@@ -20,6 +21,7 @@ namespace Engine.ViewModels
 
         private Trader _currentTrader;        
         public string Version { get; } = "0.1.000";
+        [JsonIgnore]
         public World CurrentWorld { get; }
         public Player CurrentPlayer
         {
@@ -62,6 +64,7 @@ namespace Engine.ViewModels
             }
         }
 
+        [JsonIgnore]
         public Monster CurrentMonster
         {
             get => _currentMonster;
@@ -86,6 +89,7 @@ namespace Engine.ViewModels
             }
         }
 
+        [JsonIgnore]
         public Trader CurrentTrader
         {
             get => _currentTrader;
@@ -100,11 +104,17 @@ namespace Engine.ViewModels
             }
         }
 
+        [JsonIgnore]
         public bool HasLocationToNorth => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;
+        [JsonIgnore]
         public bool HasLocationToEast => CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate) != null;
+        [JsonIgnore]
         public bool HasLocationToSouth => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1) != null;
+        [JsonIgnore]
         public bool HasLocationToWest => CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate) != null;
+        [JsonIgnore]
         public bool HasMonster => CurrentMonster != null;
+        [JsonIgnore]
         public bool HasTrader => CurrentTrader != null;
         public GameSession()
         {
