@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace CallesSuperMegaRPG
+namespace CallesSuperMegaRPG.Windows
 {
     public partial class YesNoWindow : Window
     {
