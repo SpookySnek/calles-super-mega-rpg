@@ -9,25 +9,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using Engine.Services;
 using System.ComponentModel;
+using Microsoft.Win32;
+using CallesSuperMegaRPG.Windows;
 
 namespace CallesSuperMegaRPG
 {
     public partial class MainWindow : Window
     {
+        private const string SAVE_GAME_FILE_EXTENSION = "callesrpg";
+
         private readonly MessageBroker _messageBroker = MessageBroker.GetInstance();
-        private readonly GameSession _gameSession;
-        private readonly Dictionary<Key, Action> _userInputActions = new Dictionary<Key, Action>();
+
+        private readonly Dictionary<Key, Action> _userInputActions =
+            new Dictionary<Key, Action>();
+
+        private GameSession _gameSession;
+        
         public MainWindow()
         {
             InitializeComponent();
-
+            
             InitializeUserInputActions();
-
-            _messageBroker.OnMessageRaised += OnGameMessageRaised;
-
-            _gameSession = SaveGameService.LoadLastSaveOrCreateNew();
-
-            DataContext = _gameSession;
+            
+            SetActiveGameSessionTo(new GameSession());
         }
 
         private void OnClick_MoveNorth(object sender, RoutedEventArgs e)
@@ -42,28 +46,27 @@ namespace CallesSuperMegaRPG
         {
             _gameSession.MoveEast();
         }
-
+        
         private void OnClick_MoveSouth(object sender, RoutedEventArgs e)
         {
             _gameSession.MoveSouth();
         }
-
+        
         private void OnClick_AttackMonster(object sender, RoutedEventArgs e)
         {
             _gameSession.AttackCurrentMonster();
         }
-
-        public void OnClick_UseCurrentConsumable(object sender, RoutedEventArgs e)
+        private void OnClick_UseCurrentConsumable(object sender, RoutedEventArgs e)
         {
             _gameSession.UseCurrentConsumable();
         }
-
+        
         private void OnGameMessageRaised(object sender, GameMessageEventArgs e)
         {
             GameMessages.Document.Blocks.Add(new Paragraph(new Run(e.Message)));
             GameMessages.ScrollToEnd();
         }
-
+        
         private void OnClick_DisplayTradeScreen(object sender, RoutedEventArgs e)
         {
             if (_gameSession.CurrentTrader != null)
@@ -81,7 +84,7 @@ namespace CallesSuperMegaRPG
             _gameSession.CraftItemUsing(recipe);
         }
 
-        private void InitializeUserInputActions() 
+        private void InitializeUserInputActions()
         {
             _userInputActions.Add(Key.W, () => _gameSession.MoveNorth());
             _userInputActions.Add(Key.A, () => _gameSession.MoveWest());
@@ -94,7 +97,7 @@ namespace CallesSuperMegaRPG
             _userInputActions.Add(Key.R, () => SetTabFocusTo("RecipesTabItem"));
             _userInputActions.Add(Key.T, () => OnClick_DisplayTradeScreen(this, new RoutedEventArgs()));
         }
-
+        
         private void MainWindow_OnKeyDown(object sender, KeyEventArgs e)
         {
             if (_userInputActions.ContainsKey(e.Key))
@@ -102,25 +105,96 @@ namespace CallesSuperMegaRPG
                 _userInputActions[e.Key].Invoke();
             }
         }
-
+        
         private void SetTabFocusTo(string tabName)
         {
-            foreach (object item in PlayerDataTabControl.Items) 
+            foreach (object item in PlayerDataTabControl.Items)
             {
                 if (item is TabItem tabItem)
-                { 
+                {
                     if (tabItem.Name == tabName)
                     {
                         tabItem.IsSelected = true;
+
                         return;
                     }
                 }
             }
         }
+        
+        private void SetActiveGameSessionTo(GameSession gameSession)
+        {
+            // Unsubscribe from OnMessageRaised, or we will get double messages
+            _messageBroker.OnMessageRaised -= OnGameMessageRaised;
 
+            _gameSession = gameSession;
+
+            DataContext = _gameSession;
+
+            // Clear out previous game's messages
+            GameMessages.Document.Blocks.Clear();
+
+            _messageBroker.OnMessageRaised += OnGameMessageRaised;
+        }
+
+        private void StartNewGame_OnClick(object sender, RoutedEventArgs e)
+        {
+            SetActiveGameSessionTo(new GameSession());
+        }
+        
+        private void LoadGame_OnClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog =
+                new OpenFileDialog
+                {
+                    InitialDirectory = AppDomain.CurrentDomain.BaseDirectory,
+
+                    Filter = $"Saved games (*.{SAVE_GAME_FILE_EXTENSION})|*.{SAVE_GAME_FILE_EXTENSION}"
+                };
+            if (openFileDialog.ShowDialog() == true)
+            {
+                SetActiveGameSessionTo(SaveGameService.LoadLastSaveOrCreateNew(openFileDialog.FileName));
+            }
+        }
+        
+        private void SaveGame_OnClick(object sender, RoutedEventArgs e)
+        {
+            SaveGame();
+        }
+        
+        private void Exit_OnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        
         private void MainWindow_OnClosing(object sender, CancelEventArgs e)
         {
-            SaveGameService.Save(_gameSession);
+            YesNoWindow message =
+                new YesNoWindow("Save Game", "Do you want to save your game?");
+
+            message.Owner = GetWindow(this);
+
+            message.ShowDialog();
+
+            if (message.ClickedYes)
+            {
+                SaveGame();
+            }
+        }
+        
+        private void SaveGame()
+        {
+            SaveFileDialog saveFileDialog =
+                new SaveFileDialog
+                {
+                    InitialDirectory = AppDomain.CurrentDomain.BaseDirectory,
+
+                    Filter = $"Saved games (*.{SAVE_GAME_FILE_EXTENSION})|*.{SAVE_GAME_FILE_EXTENSION}"
+                };
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                SaveGameService.Save(_gameSession, saveFileDialog.FileName);
+            }
         }
     }
 }
