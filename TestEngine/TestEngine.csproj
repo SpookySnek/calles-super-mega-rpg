@@ -19,4 +19,10 @@
     <ProjectReference Include="..\Engine\Engine.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="TestFiles\SavedGames\Game_0_1_000.callesrpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
