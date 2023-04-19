@@ -251,8 +251,23 @@ namespace Engine.ViewModels
         {
             if (CurrentPlayer.CurrentConsumable != null)
             {
+                if (_currentBattle == null)
+                {
+                    CurrentPlayer.OnActionPerformed += OnConsumableActionPerformed;
+                }
+
                 CurrentPlayer.UseCurrentConsumable();
+
+                if (_currentBattle == null)
+                {
+                    CurrentPlayer.OnActionPerformed -= OnConsumableActionPerformed;
+                }
             }
+        }
+
+        private void OnConsumableActionPerformed(object sender, string result)
+        {
+            _messageBroker.RaiseMessage(result);
         }
 
         public void CraftItemUsing(Recipe recipe)
