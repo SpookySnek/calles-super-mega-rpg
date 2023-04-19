@@ -25,6 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="d20tek-dicenotation" Version="3.3.2" />
+    <PackageReference Include="D20Tek.Common" Version="3.3.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
