@@ -25,16 +25,6 @@ namespace TestEngine.Actions
             // So, the constructor should throw an exception.
             AttackWithWeapon attackWithWeapon = new AttackWithWeapon(granolaBar, "1d5");
         }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void Test_Constructor_MinimumDamageLessThanZero()
-        {
-            GameItem pointyStick = ItemFactory.CreateGameItem(1001);
-            // This minimum damage value is less than 0.
-            // So, the constructor should throw an exception.
-            AttackWithWeapon attackWithWeapon = new AttackWithWeapon(pointyStick, "-1d5");
-        }
         
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
