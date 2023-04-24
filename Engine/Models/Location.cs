@@ -1,4 +1,5 @@
 ﻿using Engine.Factories;
+using Engine.Services;
 using Newtonsoft.Json;
 
 namespace Engine.Models
@@ -55,7 +56,7 @@ namespace Engine.Models
             int totalChances = MonstersHere.Sum(m => m.ChanceOfEncountering);
 
             // A random number between 1 and the total chances
-            int randomNumber = RandomNumberGenerator.NumberBetween(1, totalChances);
+            int randomNumber = DiceService.Instance.Roll(totalChances, 1).Value;
 
             // Loop through all the monsters, adding their chance of appearing to runningTotal
             // When runningTotal is equal to or greater than the random number, return the current monster

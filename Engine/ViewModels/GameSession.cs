@@ -118,7 +118,7 @@ namespace Engine.ViewModels
         public bool HasTrader => CurrentTrader != null;
         public GameSession()
         {
-            int dexterity = RandomNumberGenerator.NumberBetween(3, 18);
+            int dexterity = DiceService.Instance.Roll(6, 3).Value;
 
             CurrentPlayer = new Player("Calle", "Fighter", 0, 10, 10, dexterity, 1000);
 
