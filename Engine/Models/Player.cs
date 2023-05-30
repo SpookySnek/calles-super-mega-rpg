@@ -27,9 +27,9 @@ namespace Engine.Models
             }
         }
 
-        public ObservableCollection<QuestStatus> Quests { get; }
+        public ObservableCollection<QuestStatus> Quests { get; } = new ObservableCollection<QuestStatus>();
 
-        public ObservableCollection<Recipe> Recipes { get; }
+        public ObservableCollection<Recipe> Recipes { get; } = new ObservableCollection<Recipe>();
 
         public event EventHandler OnLeveledUp;
 
@@ -39,9 +39,6 @@ namespace Engine.Models
         {
             CharacterClass = characterClass;
             ExperiencePoints = experiencePoints;
-            
-            Quests = new ObservableCollection<QuestStatus>();
-            Recipes = new ObservableCollection<Recipe>();
         }
 
         public void AddExperience(int experiencePoints)

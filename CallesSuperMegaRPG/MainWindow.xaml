@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:CallesSuperMegaRPG"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:Engine.ViewModels;assembly=Engine"
-    Title="Calle's Super Mega RPG"
+    Title="{Binding GameDetails.Name}" 
     Width="1024"
     Height="768"
     d:DataContext="{d:DesignInstance viewModels:GameSession}"
