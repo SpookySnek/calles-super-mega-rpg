@@ -39,9 +39,6 @@ namespace Engine.Models
         {
             CharacterClass = characterClass;
             ExperiencePoints = experiencePoints;
-            
-            Quests = new ObservableCollection<QuestStatus>();
-            Recipes = new ObservableCollection<Recipe>();
         }
 
         public void AddExperience(int experiencePoints)
